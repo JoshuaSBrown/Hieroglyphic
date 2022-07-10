@@ -1,0 +1,16 @@
+# action.yml
+name: 'Hieroglyphic'
+description: 'Finds and builds in-source documentation if it exists'
+
+# Will run any time there is a change to the main branch
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-docs:
+    runs:
+      using: 'docker'
+      image: 'Dockerfile'
+      args:
+        - ${{ inputs.who-to-greet }}
